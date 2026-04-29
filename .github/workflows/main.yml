@@ -24,7 +24,7 @@ jobs:
         aws ecr get-login-password | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY }}
 
     - name: Build Docker image
-      run: docker build -t my-app .
+      run: docker build -t my-app ./backend
 
     - name: Tag image
       run: docker tag my-app:latest ${{ secrets.ECR_REPOSITORY }}:latest
